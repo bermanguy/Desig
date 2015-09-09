@@ -64,3 +64,5 @@ C:\Users\t-guyber\Desktop\Ex02 (1)\C15 Ex01 Guy 301582359 Tamir 300514049\C15 Ex
 C:\Users\t-guyber\Desktop\Ex02 (1)\C15 Ex01 Guy 301582359 Tamir 300514049\C15 Ex01 Guy 301582359 Tamir 300514049\obj\Debug\C15 Ex01 Guy 301582359 Tamir 300514049.pdb
 C:\Users\t-guyber\Documents\GitHub\Desig\C15 Ex01 Guy 301582359 Tamir 300514049\obj\Debug\C15 Ex01 Guy 301582359 Tamir 300514049.exe
 C:\Users\t-guyber\Documents\GitHub\Desig\C15 Ex01 Guy 301582359 Tamir 300514049\obj\Debug\C15 Ex01 Guy 301582359 Tamir 300514049.pdb
+\\vmware-host\Shared Folders\Downloads\לימודים\שנה ג\סמסטר קיץ\Design Patterns\Desig\C15 Ex01 Guy 301582359 Tamir 300514049\obj\Debug\C15 Ex01 Guy 301582359 Tamir 300514049.exe
+\\vmware-host\Shared Folders\Downloads\לימודים\שנה ג\סמסטר קיץ\Design Patterns\Desig\C15 Ex01 Guy 301582359 Tamir 300514049\obj\Debug\C15 Ex01 Guy 301582359 Tamir 300514049.pdb
