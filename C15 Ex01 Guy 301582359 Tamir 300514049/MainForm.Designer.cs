@@ -1,6 +1,6 @@
 ﻿namespace C15_Ex01_Guy_301582359_Tamir_300514049
 {
-    public partial class Facebook_Form
+    public partial class FormFacebook
     {
         /// <summary>
         /// Required designer variable.
@@ -29,15 +29,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Facebook_Form));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFacebook));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.profilePic_PictureBox = new System.Windows.Forms.PictureBox();
@@ -45,6 +45,10 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.locationTable = new System.Windows.Forms.DataGridView();
+            this.timeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.friendColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.placeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.itemImagePictureBox = new System.Windows.Forms.PictureBox();
             this.resetButton = new System.Windows.Forms.Button();
@@ -77,10 +81,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.friendsListBox = new System.Windows.Forms.ListBox();
-            this.timeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.friendColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.placeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.profilePic_PictureBox)).BeginInit();
@@ -101,6 +102,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.educationTable)).BeginInit();
             this.groupBox6.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -153,11 +155,11 @@
             // 
             this.tabPage3.Controls.Add(this.groupBox8);
             this.tabPage3.Controls.Add(this.groupBox7);
-            this.tabPage3.Location = new System.Drawing.Point(4, 39);
+            this.tabPage3.Location = new System.Drawing.Point(4, 28);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage3.Size = new System.Drawing.Size(498, 638);
+            this.tabPage3.Size = new System.Drawing.Size(498, 649);
             this.tabPage3.TabIndex = 1;
             this.tabPage3.Text = "Location Finder";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -165,70 +167,95 @@
             // groupBox8
             // 
             this.groupBox8.Controls.Add(this.locationTable);
-            this.groupBox8.Location = new System.Drawing.Point(1, 230);
+            this.groupBox8.Location = new System.Drawing.Point(1, 314);
             this.groupBox8.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox8.Size = new System.Drawing.Size(497, 404);
+            this.groupBox8.Size = new System.Drawing.Size(497, 320);
             this.groupBox8.TabIndex = 14;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Friends who have been there";
             // 
-            // checkinTable
+            // locationTable
             // 
             this.locationTable.AllowUserToAddRows = false;
             this.locationTable.AllowUserToDeleteRows = false;
             this.locationTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.locationTable.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.locationTable.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.locationTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.locationTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.locationTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.locationTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.timeColumn,
             this.dateColumn,
             this.friendColumn,
             this.placeColumn});
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.locationTable.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.locationTable.DefaultCellStyle = dataGridViewCellStyle2;
             this.locationTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.locationTable.Location = new System.Drawing.Point(2, 32);
+            this.locationTable.Location = new System.Drawing.Point(2, 21);
             this.locationTable.Margin = new System.Windows.Forms.Padding(2);
-            this.locationTable.Name = "checkinTable";
+            this.locationTable.Name = "locationTable";
             this.locationTable.ReadOnly = true;
             this.locationTable.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.locationTable.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.locationTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.locationTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.locationTable.RowHeadersVisible = false;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.locationTable.RowsDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.locationTable.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.locationTable.RowTemplate.Height = 33;
             this.locationTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.locationTable.Size = new System.Drawing.Size(493, 370);
+            this.locationTable.Size = new System.Drawing.Size(493, 297);
             this.locationTable.TabIndex = 4;
             this.locationTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.locationTable_CellContentClick);
             // 
+            // timeColumn
+            // 
+            this.timeColumn.HeaderText = "Place";
+            this.timeColumn.Name = "timeColumn";
+            this.timeColumn.ReadOnly = true;
+            // 
+            // dateColumn
+            // 
+            this.dateColumn.HeaderText = "Friend";
+            this.dateColumn.Name = "dateColumn";
+            this.dateColumn.ReadOnly = true;
+            // 
+            // friendColumn
+            // 
+            this.friendColumn.HeaderText = "Date";
+            this.friendColumn.Name = "friendColumn";
+            this.friendColumn.ReadOnly = true;
+            // 
+            // placeColumn
+            // 
+            this.placeColumn.HeaderText = "Picture";
+            this.placeColumn.Name = "placeColumn";
+            this.placeColumn.ReadOnly = true;
+            // 
             // groupBox7
             // 
+            this.groupBox7.Controls.Add(this.pictureBox2);
             this.groupBox7.Controls.Add(this.itemImagePictureBox);
             this.groupBox7.Controls.Add(this.resetButton);
             this.groupBox7.Controls.Add(this.searchButton);
@@ -239,23 +266,23 @@
             this.groupBox7.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox7.Size = new System.Drawing.Size(493, 228);
+            this.groupBox7.Size = new System.Drawing.Size(493, 311);
             this.groupBox7.TabIndex = 13;
             this.groupBox7.TabStop = false;
             // 
             // itemImagePictureBox
             // 
-            this.itemImagePictureBox.Location = new System.Drawing.Point(324, 58);
+            this.itemImagePictureBox.Location = new System.Drawing.Point(327, 34);
             this.itemImagePictureBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.itemImagePictureBox.Name = "itemImagePictureBox";
-            this.itemImagePictureBox.Size = new System.Drawing.Size(132, 123);
+            this.itemImagePictureBox.Size = new System.Drawing.Size(129, 112);
             this.itemImagePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.itemImagePictureBox.TabIndex = 32;
             this.itemImagePictureBox.TabStop = false;
             // 
             // resetButton
             // 
-            this.resetButton.Location = new System.Drawing.Point(122, 182);
+            this.resetButton.Location = new System.Drawing.Point(123, 275);
             this.resetButton.Margin = new System.Windows.Forms.Padding(2);
             this.resetButton.Name = "resetButton";
             this.resetButton.Size = new System.Drawing.Size(72, 32);
@@ -266,7 +293,7 @@
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(208, 182);
+            this.searchButton.Location = new System.Drawing.Point(209, 275);
             this.searchButton.Margin = new System.Windows.Forms.Padding(2);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(72, 32);
@@ -280,7 +307,7 @@
             this.userLocationTextBox.Location = new System.Drawing.Point(6, 34);
             this.userLocationTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.userLocationTextBox.Name = "userLocationTextBox";
-            this.userLocationTextBox.Size = new System.Drawing.Size(277, 37);
+            this.userLocationTextBox.Size = new System.Drawing.Size(277, 26);
             this.userLocationTextBox.TabIndex = 29;
             // 
             // label1
@@ -289,7 +316,7 @@
             this.label1.Location = new System.Drawing.Point(3, 14);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(326, 30);
+            this.label1.Size = new System.Drawing.Size(209, 19);
             this.label1.TabIndex = 28;
             this.label1.Text = "Location\\s your want to look for:";
             // 
@@ -301,7 +328,7 @@
             this.filterGroupBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.filterGroupBox.Name = "filterGroupBox";
             this.filterGroupBox.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.filterGroupBox.Size = new System.Drawing.Size(275, 113);
+            this.filterGroupBox.Size = new System.Drawing.Size(275, 206);
             this.filterGroupBox.TabIndex = 27;
             this.filterGroupBox.TabStop = false;
             this.filterGroupBox.Text = "Filter";
@@ -312,7 +339,7 @@
             this.searchByDateCheckBox.Location = new System.Drawing.Point(10, 27);
             this.searchByDateCheckBox.Margin = new System.Windows.Forms.Padding(2);
             this.searchByDateCheckBox.Name = "searchByDateCheckBox";
-            this.searchByDateCheckBox.Size = new System.Drawing.Size(189, 34);
+            this.searchByDateCheckBox.Size = new System.Drawing.Size(121, 23);
             this.searchByDateCheckBox.TabIndex = 2;
             this.searchByDateCheckBox.Text = "Search by date";
             this.searchByDateCheckBox.UseVisualStyleBackColor = true;
@@ -328,7 +355,7 @@
             this.dateSearchPanel.Location = new System.Drawing.Point(6, 56);
             this.dateSearchPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dateSearchPanel.Name = "dateSearchPanel";
-            this.dateSearchPanel.Size = new System.Drawing.Size(156, 47);
+            this.dateSearchPanel.Size = new System.Drawing.Size(155, 58);
             this.dateSearchPanel.TabIndex = 1;
             // 
             // label4
@@ -336,7 +363,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(1, 30);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 30);
+            this.label4.Size = new System.Drawing.Size(27, 19);
             this.label4.TabIndex = 6;
             this.label4.Text = "To:";
             // 
@@ -346,7 +373,7 @@
             this.dateTimePickerTo.Location = new System.Drawing.Point(47, 25);
             this.dateTimePickerTo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dateTimePickerTo.Name = "dateTimePickerTo";
-            this.dateTimePickerTo.Size = new System.Drawing.Size(100, 37);
+            this.dateTimePickerTo.Size = new System.Drawing.Size(100, 26);
             this.dateTimePickerTo.TabIndex = 4;
             // 
             // label3
@@ -354,7 +381,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(1, 8);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 30);
+            this.label3.Size = new System.Drawing.Size(44, 19);
             this.label3.TabIndex = 5;
             this.label3.Text = "From:";
             // 
@@ -364,7 +391,7 @@
             this.dateTimePickerFrom.Location = new System.Drawing.Point(47, 2);
             this.dateTimePickerFrom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dateTimePickerFrom.Name = "dateTimePickerFrom";
-            this.dateTimePickerFrom.Size = new System.Drawing.Size(100, 37);
+            this.dateTimePickerFrom.Size = new System.Drawing.Size(100, 26);
             this.dateTimePickerFrom.TabIndex = 3;
             this.dateTimePickerFrom.ValueChanged += new System.EventHandler(this.dateTimePickerFrom_ValueChanged);
             // 
@@ -386,11 +413,11 @@
             this.tabPage4.Controls.Add(this.coverPhotoPictureBox);
             this.tabPage4.Controls.Add(this.EventsGroupBox);
             this.tabPage4.Controls.Add(this.groupBox_Status);
-            this.tabPage4.Location = new System.Drawing.Point(4, 39);
+            this.tabPage4.Location = new System.Drawing.Point(4, 28);
             this.tabPage4.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage4.Size = new System.Drawing.Size(498, 638);
+            this.tabPage4.Size = new System.Drawing.Size(498, 649);
             this.tabPage4.TabIndex = 0;
             this.tabPage4.Text = "Main";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -422,11 +449,11 @@
             // 
             this.EventsListBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EventsListBox.FormattingEnabled = true;
-            this.EventsListBox.ItemHeight = 30;
-            this.EventsListBox.Location = new System.Drawing.Point(3, 34);
+            this.EventsListBox.ItemHeight = 19;
+            this.EventsListBox.Location = new System.Drawing.Point(3, 23);
             this.EventsListBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EventsListBox.Name = "EventsListBox";
-            this.EventsListBox.Size = new System.Drawing.Size(482, 292);
+            this.EventsListBox.Size = new System.Drawing.Size(482, 303);
             this.EventsListBox.TabIndex = 0;
             // 
             // groupBox_Status
@@ -466,11 +493,11 @@
             // 
             this.tabPage1.Controls.Add(this.educationGroupBox);
             this.tabPage1.Controls.Add(this.groupBox6);
-            this.tabPage1.Location = new System.Drawing.Point(4, 39);
+            this.tabPage1.Location = new System.Drawing.Point(4, 28);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage1.Size = new System.Drawing.Size(498, 638);
+            this.tabPage1.Size = new System.Drawing.Size(498, 649);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Mutual Academic Friends";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -495,47 +522,47 @@
             this.educationTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.educationTable.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.educationTable.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.educationTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.educationTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.educationTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.educationTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.FriendName,
             this.InstitutionName});
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.educationTable.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.educationTable.DefaultCellStyle = dataGridViewCellStyle6;
             this.educationTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.educationTable.Location = new System.Drawing.Point(2, 32);
+            this.educationTable.Location = new System.Drawing.Point(2, 21);
             this.educationTable.Margin = new System.Windows.Forms.Padding(2);
             this.educationTable.Name = "educationTable";
             this.educationTable.ReadOnly = true;
             this.educationTable.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.educationTable.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.educationTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.educationTable.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.educationTable.RowHeadersVisible = false;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.educationTable.RowsDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.educationTable.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.educationTable.RowTemplate.Height = 33;
             this.educationTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.educationTable.Size = new System.Drawing.Size(493, 522);
+            this.educationTable.Size = new System.Drawing.Size(493, 533);
             this.educationTable.TabIndex = 5;
             // 
             // FriendName
@@ -579,7 +606,7 @@
             this.academicTextBox.Location = new System.Drawing.Point(6, 34);
             this.academicTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.academicTextBox.Name = "academicTextBox";
-            this.academicTextBox.Size = new System.Drawing.Size(277, 37);
+            this.academicTextBox.Size = new System.Drawing.Size(277, 26);
             this.academicTextBox.TabIndex = 29;
             // 
             // label2
@@ -588,7 +615,7 @@
             this.label2.Location = new System.Drawing.Point(3, 14);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(419, 30);
+            this.label2.Size = new System.Drawing.Size(269, 19);
             this.label2.TabIndex = 28;
             this.label2.Text = "Academic Institutions you want to look for";
             // 
@@ -608,41 +635,27 @@
             // 
             this.friendsListBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.friendsListBox.FormattingEnabled = true;
-            this.friendsListBox.ItemHeight = 30;
-            this.friendsListBox.Location = new System.Drawing.Point(2, 32);
+            this.friendsListBox.ItemHeight = 19;
+            this.friendsListBox.Location = new System.Drawing.Point(2, 21);
             this.friendsListBox.Margin = new System.Windows.Forms.Padding(2);
             this.friendsListBox.Name = "friendsListBox";
-            this.friendsListBox.Size = new System.Drawing.Size(172, 409);
+            this.friendsListBox.Size = new System.Drawing.Size(172, 420);
             this.friendsListBox.TabIndex = 0;
             // 
-            // timeColumn
+            // pictureBox2
             // 
-            this.timeColumn.HeaderText = "Place";
-            this.timeColumn.Name = "timeColumn";
-            this.timeColumn.ReadOnly = true;
+            this.pictureBox2.Location = new System.Drawing.Point(327, 165);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(129, 104);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 33;
+            this.pictureBox2.TabStop = false;
             // 
-            // dateColumn
+            // FormFacebook
             // 
-            this.dateColumn.HeaderText = "Friend";
-            this.dateColumn.Name = "dateColumn";
-            this.dateColumn.ReadOnly = true;
-            // 
-            // friendColumn
-            // 
-            this.friendColumn.HeaderText = "Date";
-            this.friendColumn.Name = "friendColumn";
-            this.friendColumn.ReadOnly = true;
-            // 
-            // placeColumn
-            // 
-            this.placeColumn.HeaderText = "Picture";
-            this.placeColumn.Name = "placeColumn";
-            this.placeColumn.ReadOnly = true;
-            // 
-            // Facebook_Form
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(867, 746);
             this.Controls.Add(this.groupBox3);
@@ -651,7 +664,7 @@
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "Facebook_Form";
+            this.Name = "FormFacebook";
             this.Text = "Facebook Features";
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -678,6 +691,7 @@
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -727,5 +741,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dateColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn friendColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn placeColumn;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

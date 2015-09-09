@@ -8,45 +8,75 @@ using FacebookWrapper.ObjectModel;
 namespace C15_Ex01_Guy_301582359_Tamir_300514049.Logic
 {
     public delegate int AddItemAction<T>(T i_Object);
+    public delegate int AddItemAction(params object[] values);
+    public delegate void onLoginSuccess(string i_LoginErrorMessage);
 
     public class LogicManager
     {
-        public User m_LoggedInUser { get; set; }
+        private User m_LoggedInUser;
+        public onLoginSuccess m_onLoginSuccess;
+        public LoggedUserWrapper LoggedUser { get; private set; }
+
         public CommonGroup m_LocationCommonGroup { get; set; }
 
         public LogicManager()
         {
         }
 
-        public bool LoginAndInit(out string o_LoginErrorMessage)
+        //public void LoginAndInit(out string o_LoginErrorMessage)
+        public void LoginAndInit()
         {
-            bool loginSuccess;
+            //bool loginSuccess;
+            string loginErrorMessage = null;
 
             LoginResult result = FacebookService.Login(
                 "1084476921567330", "user_about_me", "user_friends", "publish_actions", "user_events", "user_posts", "user_photos", "user_status", "user_tagged_places", "user_education_history");
 
-            o_LoginErrorMessage = result.ErrorMessage;
+            //o_LoginErrorMessage = result.ErrorMessage;
+            loginErrorMessage = result.ErrorMessage;
 
             if (!string.IsNullOrEmpty(result.AccessToken))
             {
-                loginSuccess = true;
+                //loginSuccess = true;
                 m_LoggedInUser = result.LoggedInUser;
-            }
-            else
-            {
-                loginSuccess = false;
-            }
 
-            return loginSuccess;
+                new System.Threading.Thread(() =>
+                {
+                    LoggedUser = new LoggedUserWrapper(m_LoggedInUser);
+
+                    if (m_onLoginSuccess != null)
+                    {
+                        m_onLoginSuccess.Invoke(loginErrorMessage);
+                    }
+                }).Start();
+            }
+            //else
+            //{
+            //    loginSuccess = false;
+            //}
+
+            //return loginSuccess;
         }
 
-        public void FetchInfo<T>(AddItemAction<object> i_AddItem, FacebookObjectCollection<T> i_Collection)
+        public void FetchInfo<T>(AddItemAction<object> i_AddItem, ICollection<T> i_Collection)
         {
             if (m_LoggedInUser != null)
             {
                 foreach (var item in i_Collection)
                 {
                     i_AddItem.Invoke(item);
+                }
+            }
+        }
+
+        public void fetchInfo(AddItemAction i_AddItem, ICollection<ItemInfo> i_Collection)
+        {
+            if (m_LoggedInUser != null)
+            {
+                foreach (ItemInfo item in i_Collection)
+                {
+                    object[] values = item.GetValues();
+                    i_AddItem.Invoke(values);
                 }
             }
         }
@@ -59,10 +89,13 @@ namespace C15_Ex01_Guy_301582359_Tamir_300514049.Logic
             foreach (User user in m_LoggedInUser.Friends)
             {
                 foreach (Checkin checkin in user.Checkins)
+                //User user = m_LoggedInUser;
+                //foreach(Checkin checkin in m_LoggedInUser.Checkins)
                 {
                     if (checkIfCheckinRelevant(i_Location, checkin))
                     {
-                        LocationItemInfo itemInfo = new LocationItemInfo { CreatedTime = (DateTime)checkin.CreatedTime, User = user.Name, Name = checkin.Place.Name, UserImageUrl = user.PictureNormalURL };
+                        LocationItemInfo itemInfo = new LocationItemInfo { User = user, Item = checkin };
+                        //LocationItemInfo itemInfo = new LocationItemInfo { CreatedTime = (DateTime)checkin.CreatedTime, User = user.Name, Name = checkin.Place.Name, UserImageUrl = user.PictureNormalURL };
 
                         locationList.Add(itemInfo);
                         m_LocationCommonGroup.Items.Add(itemInfo);
@@ -70,10 +103,12 @@ namespace C15_Ex01_Guy_301582359_Tamir_300514049.Logic
                 }
 
                 foreach (Album album in user.Albums)
+                //foreach(Album album in m_LoggedInUser.Albums)
                 {
                     if (isRelevant(i_Location, album.Name.ToUpper().Split()))
                     {
-                        LocationItemInfo itemInfo = new LocationItemInfo { CreatedTime = (DateTime)album.CreatedTime, User = user.Name, Name = album.Name, UserImageUrl = user.PictureNormalURL, ItemImageUrl = album.PictureAlbumURL };
+                        LocationItemInfo itemInfo = new LocationItemInfo { User = user, Item = album };
+                        //LocationItemInfo itemInfo = new LocationItemInfo { CreatedTime = (DateTime)album.CreatedTime, User = user.Name, Name = album.Name, UserImageUrl = user.PictureNormalURL, ItemImageUrl = album.PictureAlbumURL };
 
                         locationList.Add(itemInfo);
                         m_LocationCommonGroup.Items.Add(itemInfo);
@@ -137,7 +172,7 @@ namespace C15_Ex01_Guy_301582359_Tamir_300514049.Logic
 
             foreach (LocationItemInfo location in locationList)
             {
-                if (isItemDateInRange(i_DateFrom, i_DateTo, location.CreatedTime.Date))
+                if (isItemDateInRange(i_DateFrom, i_DateTo, location.GetCreatedDate()))
                 {
                     filteredLocationList.Add(location);
                 }
@@ -148,7 +183,7 @@ namespace C15_Ex01_Guy_301582359_Tamir_300514049.Logic
 
         private bool isItemDateInRange(System.Windows.Forms.DateTimePicker i_InputDateFrom, System.Windows.Forms.DateTimePicker i_InputDateTo, DateTime i_ItemDate)
         {
-            bool isDateInRange = (i_ItemDate >= i_InputDateFrom.Value.Date && i_ItemDate.Date <= i_InputDateTo.Value.Date);
+            bool isDateInRange = i_ItemDate >= i_InputDateFrom.Value.Date && i_ItemDate.Date <= i_InputDateTo.Value.Date;
 
             return isDateInRange;
         }
@@ -163,7 +198,8 @@ namespace C15_Ex01_Guy_301582359_Tamir_300514049.Logic
                 {
                     if (isRelevantEducation(i_EducationInput, education.School.Name.ToUpper()))
                     {
-                        educationList.Add(new EducationItemInfo { SchoolName = education.School.Name, Degree = education.Degree.Name, User = user.Name });
+                        educationList.Add(new EducationItemInfo { Education = education, User = user });
+                        //educationList.Add(new EducationItemInfo { SchoolName = education.School.Name, User = user.Name });
                     }
                 }
             }
@@ -171,16 +207,16 @@ namespace C15_Ex01_Guy_301582359_Tamir_300514049.Logic
             return educationList;
         }
 
-        public List<ItemInfo> FetchEvents()
-        {
-            List<ItemInfo> eventsList = new List<ItemInfo>();
+        //public List<ItemInfo> FetchEvents()
+        //{
+        //    List<ItemInfo> eventsList = new List<ItemInfo>();
 
-            foreach (Event userEvent in m_LoggedInUser.EventsNotYetReplied)
-            {
-                eventsList.Add(new ItemInfo { Name = userEvent.Name });
-            }
+        //    foreach (Event userEvent in m_LoggedInUser.EventsNotYetReplied)
+        //    {
+        //        eventsList.Add(new ItemInfo { Name = userEvent.Name });
+        //    }
 
-            return eventsList;
-        }
+        //    return eventsList;
+        //}
     }
 }

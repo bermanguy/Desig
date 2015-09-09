@@ -54,10 +54,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Logic\CommonGroup.cs" />
+    <Compile Include="Logic\DataGridViewApp.cs" />
     <Compile Include="Logic\EducationItemInfo.cs" />
     <Compile Include="Logic\ExtensionMethods.cs" />
     <Compile Include="Logic\ItemInfo.cs" />
+    <Compile Include="Logic\IUIGroupComponent.cs" />
+    <Compile Include="Logic\ListBoxApp.cs" />
     <Compile Include="Logic\LocationItemInfo.cs" />
+    <Compile Include="Logic\LoggedUser.cs" />
     <Compile Include="Logic\LogicManager.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -65,7 +69,6 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PictureBoxExtension.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MainForm.resx">

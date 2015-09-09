@@ -11,13 +11,15 @@ using C15_Ex01_Guy_301582359_Tamir_300514049.Logic;
 
 namespace C15_Ex01_Guy_301582359_Tamir_300514049
 {
-    public partial class Facebook_Form : Form
+
+    public partial class FormFacebook : Form
     {
         private const string k_DisplayMembersName = "Name";
         private static readonly DateTime sr_MinDateSearch = new DateTime(1950, 1, 1);
         private LogicManager m_LogicManager;
-        
-        public Facebook_Form()
+        private readonly Thread sr_StartAfterLoginProcessThread;
+
+        public FormFacebook()
         {
             FacebookWrapper.FacebookService.s_CollectionLimit = 1000;
             InitializeComponent();
@@ -25,56 +27,80 @@ namespace C15_Ex01_Guy_301582359_Tamir_300514049
             dateTimePickerTo.MaxDate = DateTime.Today;
             dateTimePickerFrom.MaxDate = DateTime.Today;
             dateTimePickerFrom.MinDate = sr_MinDateSearch;
+            sr_StartAfterLoginProcessThread = new Thread(startAfterLoginProcess);
+            m_LogicManager.m_onLoginSuccess += onLoginSuccess;
+            //tabsController.Enabled = true;
         }
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            bool loginSuccess;
-            string errorMessage;
+            //bool loginSuccess;
+            //string errorMessage;
 
-            loginSuccess = m_LogicManager.LoginAndInit(out errorMessage);
+            //loginSuccess = m_LogicManager.LoginAndInit(out errorMessage);
+            m_LogicManager.LoginAndInit();
 
-            if (loginSuccess)
+            //if (loginSuccess)
+            //{
+            //    tabsController.Enabled = true;
+            //    sr_StartAfterLoginProcessThread.Start();
+            //}
+        }
+
+        private void onLoginSuccess(string i_LoginErrorMessage)
+        {
+            tabsController.Invoke(new Action( () => tabsController.Enabled = true));
+            //tabsController.Enabled = true;
+            sr_StartAfterLoginProcessThread.Start();
+        }
+
+        private void startAfterLoginProcess()
+        {
+            profilePic_PictureBox.LoadAsync(m_LogicManager.LoggedUser.GetPictureLargeUrl());
+
+            if (m_LogicManager.LoggedUser.GetCover() != null)
             {
-                profilePic_PictureBox.LoadAsync(m_LogicManager.m_LoggedInUser.PictureNormalURL);
-                coverPhotoPictureBox.LoadAsync(m_LogicManager.m_LoggedInUser.Cover.SourceURL);
-                fetchUserInfo();
-                tabsController.Enabled = true;
-            }         
+                coverPhotoPictureBox.LoadAsync(m_LogicManager.LoggedUser.GetCover().SourceURL);
+            }
+
+            fetchUserInfo();
         }
 
         private void fetchUserInfo()
         {
-            fetchFriends();
-            fetchEvents();
+            friendsListBox.Invoke(new Action(() => fetchFriends()));
+            EventsListBox.Invoke(new Action(() => fetchEvents()));
+            //EventsListBox.Invoke(new Action(
+            //    () =>
+            //    {
+            //        foreach (FacebookWrapper.ObjectModel.Event eve in m_LogicManager.LoggedUser.GetEvents())
+            //        {
+            //            EventsListBox.Items.Add(eve.Name);
+            //        }
+            //    }
+            //    ));
         }
 
         private void fetchFriends()
         {
             friendsListBox.Items.Clear();
             friendsListBox.DisplayMember = k_DisplayMembersName;
-            m_LogicManager.FetchInfo(friendsListBox.Items.Add, m_LogicManager.m_LoggedInUser.Friends);
+            m_LogicManager.FetchInfo(friendsListBox.Items.Add, m_LogicManager.LoggedUser.Friends);
         }
 
         private void fetchEvents()
         {
-            List<ItemInfo> events = m_LogicManager.FetchEvents();
+            //List<ItemInfo> events = m_LogicManager.FetchEvents();
 
             EventsListBox.Items.Clear();
             EventsListBox.DisplayMember = k_DisplayMembersName;
 
-            foreach (ItemInfo item in events)
-            {
-                EventsListBox.Items.Add(item.Name);
-            }
-        }        
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
+            //foreach (ItemInfo item in events)
+            //{
+            //    EventsListBox.Items.Add(item.Name);
+            //}
+            //FacebookWrapper.ObjectModel.FacebookObjectCollection<FacebookWrapper.ObjectModel.Event> events = m_LogicManager.LoggedUser.GetUpcomingEvents();
+            m_LogicManager.FetchInfo(EventsListBox.Items.Add, m_LogicManager.LoggedUser.UpcomingEvents);
         }
 
         private void locationSearchButton_Click(object sender, EventArgs e)
@@ -82,12 +108,12 @@ namespace C15_Ex01_Guy_301582359_Tamir_300514049
             string[] locationInput = userLocationTextBox.Text.ToUpper().Split();
             List<LocationItemInfo> locationsList = searchByDateCheckBox.Checked ? m_LogicManager.FetchLocationsByDate(locationInput, dateTimePickerFrom, dateTimePickerTo) :
                 m_LogicManager.FetchLocations(locationInput);
-            
+
             locationTable.Rows.Clear();
 
             foreach (LocationItemInfo location in locationsList)
             {
-                this.locationTable.Rows.Add(location.Name, location.User, location.CreatedTime, location.ItemImageUrl.StringExistance());
+                this.locationTable.Rows.Add(location.GetItemName(), location.GetOwnerName(), location.GetCreatedDate(), location.GetItemImageUrl().StringExistance());
                 locationTable.ClearSelection();
             }
         }
@@ -105,7 +131,7 @@ namespace C15_Ex01_Guy_301582359_Tamir_300514049
 
             foreach (EducationItemInfo item in educationList)
             {
-                this.educationTable.Rows.Add(item.User, item.SchoolName, item.Degree);
+                this.educationTable.Rows.Add(item.GetOwnerName(), item.GetSchoolName());
             }
         }
 
@@ -116,10 +142,6 @@ namespace C15_Ex01_Guy_301582359_Tamir_300514049
         private void searchByDateCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             dateSearchPanel.Enabled = !dateSearchPanel.Enabled;
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
         }
 
         private void postStatusButton_Click(object sender, EventArgs e)
@@ -158,7 +180,7 @@ namespace C15_Ex01_Guy_301582359_Tamir_300514049
             {
                 LocationItemInfo locationItemInfo = (LocationItemInfo)m_LogicManager.m_LocationCommonGroup.Items.ElementAt(locationTable.CurrentCell.RowIndex);
 
-                displayItemPictures(locationItemInfo.ItemImageUrl);
+                displayItemPictures(locationItemInfo.GetItemImageUrl());
             }
         }
 
