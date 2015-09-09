@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C15 Ex01 Guy 301582359 Tamir 300514049", "C15 Ex01 Guy 301582359 Tamir 300514049\C15 Ex01 Guy 301582359 Tamir 300514049.csproj", "{7E14A452-6DCA-4290-9E2A-DEC39B269BEB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{E0B52A00-5481-41A4-AFA9-847859C20F67}"
+	ProjectSection(SolutionItems) = preProject
+		C15 Ex01 Guy 301582359 Tamir 300514049.docx = C15 Ex01 Guy 301582359 Tamir 300514049.docx
+		Exercise Checking Report.txt = Exercise Checking Report.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7E14A452-6DCA-4290-9E2A-DEC39B269BEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E14A452-6DCA-4290-9E2A-DEC39B269BEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E14A452-6DCA-4290-9E2A-DEC39B269BEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E14A452-6DCA-4290-9E2A-DEC39B269BEB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
