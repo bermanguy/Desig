@@ -69,7 +69,7 @@ namespace C15_Ex01_Guy_301582359_Tamir_300514049.Logic
             }
         }
 
-        public void fetchInfo(AddItemAction i_AddItem, ICollection<ItemInfo> i_Collection)
+        public void FetchInfo(AddItemAction i_AddItem, ICollection<ItemInfo> i_Collection)
         {
             if (m_LoggedInUser != null)
             {
@@ -81,9 +81,9 @@ namespace C15_Ex01_Guy_301582359_Tamir_300514049.Logic
             }
         }
 
-        public List<LocationItemInfo> FetchLocations(string[] i_Location)
+        public List<ItemInfo> FetchLocations(string[] i_Location)
         {
-            List<LocationItemInfo> locationList = new List<LocationItemInfo>();
+            List<ItemInfo> locationList = new List<ItemInfo>();
             m_LocationCommonGroup = new CommonGroup();
 
             foreach (User user in m_LoggedInUser.Friends)
@@ -121,18 +121,9 @@ namespace C15_Ex01_Guy_301582359_Tamir_300514049.Logic
 
         private bool checkIfCheckinRelevant(string[] i_Location, Checkin i_Checkin)
         {
-            bool isRelevantCheckin = false;
+            string[] inputCheckinString = i_Checkin.Place.Name.ToUpper().Split();
 
-            if (i_Checkin.Place == null || i_Checkin.Place.Name == null)
-            {
-                isRelevantCheckin = false;
-            }
-            else
-            {
-                string[] inputCheckinString = i_Checkin.Place.Name.ToUpper().Split();
-                isRelevantCheckin = isRelevant(i_Location, inputCheckinString);
-            }
-            return isRelevantCheckin;
+            return isRelevant(i_Location, inputCheckinString);
         }
 
         private bool isRelevantEducation(string[] i_SplittesWords, string educationName)
@@ -174,10 +165,10 @@ namespace C15_Ex01_Guy_301582359_Tamir_300514049.Logic
             m_LoggedInUser.PostStatus(i_Status);
         }
 
-        public List<LocationItemInfo> FetchLocationsByDate(string[] i_Location, System.Windows.Forms.DateTimePicker i_DateFrom, System.Windows.Forms.DateTimePicker i_DateTo)
+        public List<ItemInfo> FetchLocationsByDate(string[] i_Location, System.Windows.Forms.DateTimePicker i_DateFrom, System.Windows.Forms.DateTimePicker i_DateTo)
         {
-            List<LocationItemInfo> locationList = FetchLocations(i_Location);
-            List<LocationItemInfo> filteredLocationList = new List<LocationItemInfo>();
+            List<ItemInfo> locationList = FetchLocations(i_Location);
+            List<ItemInfo> filteredLocationList = new List<ItemInfo>();
 
             foreach (LocationItemInfo location in locationList)
             {

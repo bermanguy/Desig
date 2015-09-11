@@ -46,5 +46,22 @@ namespace C15_Ex01_Guy_301582359_Tamir_300514049.Logic
 
             return itemName;
         }
+        public override object[] GetValues()
+        {
+            object[] baseValues = base.GetValues();
+            List<object> values = new List<object>();
+
+            values.Add(GetItemName());
+            values.Add(GetCreatedDate());
+            values.Add(GetItemImageUrl());
+
+            foreach (object obj in baseValues)
+            {
+                values.Add(obj);
+            }
+            //object[] objects = values.Cast<object>().ToArray();
+            //mylist.Cast<object>().ToArray()
+            return values.ToArray();
+        }
     }
 }

@@ -32,3 +32,11 @@ C:\Users\t-guyber\Documents\GitHub\Desig\C15 Ex01 Guy 301582359 Tamir 300514049\
 C:\Users\t-guyber\Documents\GitHub\Desig\C15 Ex01 Guy 301582359 Tamir 300514049\obj\Debug\C15_Ex01_Guy_301582359_Tamir_300514049.FormFacebook.resources
 C:\Users\t-guyber\Documents\GitHub\Desig\C15 Ex01 Guy 301582359 Tamir 300514049\obj\Debug\C15_Ex01_Guy_301582359_Tamir_300514049.Properties.Resources.resources
 C:\Users\t-guyber\Documents\GitHub\Desig\C15 Ex01 Guy 301582359 Tamir 300514049\obj\Debug\C15 Ex01 Guy 301582359 Tamir 300514049.csproj.GenerateResource.Cache
+\\vmware-host\Shared Folders\Downloads\לימודים\שנה ג\סמסטר קיץ\Design Patterns\Desig\C15 Ex01 Guy 301582359 Tamir 300514049\obj\Debug\C15 Ex01 Guy 301582359 Tamir 300514049.csprojResolveAssemblyReference.cache
+\\vmware-host\Shared Folders\Downloads\לימודים\שנה ג\סמסטר קיץ\Design Patterns\Desig\C15 Ex01 Guy 301582359 Tamir 300514049\obj\Debug\C15_Ex01_Guy_301582359_Tamir_300514049.FormFacebook.resources
+\\vmware-host\Shared Folders\Downloads\לימודים\שנה ג\סמסטר קיץ\Design Patterns\Desig\C15 Ex01 Guy 301582359 Tamir 300514049\obj\Debug\C15_Ex01_Guy_301582359_Tamir_300514049.Properties.Resources.resources
+\\vmware-host\Shared Folders\Downloads\לימודים\שנה ג\סמסטר קיץ\Design Patterns\Desig\C15 Ex01 Guy 301582359 Tamir 300514049\obj\Debug\C15 Ex01 Guy 301582359 Tamir 300514049.csproj.GenerateResource.Cache
+\\vmware-host\Shared Folders\Downloads\לימודים\שנה ג\סמסטר קיץ\Design Patterns\Desig\C15 Ex01 Guy 301582359 Tamir 300514049\bin\Debug\C15 Ex01 Guy 301582359 Tamir 300514049.exe
+\\vmware-host\Shared Folders\Downloads\לימודים\שנה ג\סמסטר קיץ\Design Patterns\Desig\C15 Ex01 Guy 301582359 Tamir 300514049\bin\Debug\C15 Ex01 Guy 301582359 Tamir 300514049.pdb
+\\vmware-host\Shared Folders\Downloads\לימודים\שנה ג\סמסטר קיץ\Design Patterns\Desig\C15 Ex01 Guy 301582359 Tamir 300514049\bin\Debug\Facebook.dll
+\\vmware-host\Shared Folders\Downloads\לימודים\שנה ג\סמסטר קיץ\Design Patterns\Desig\C15 Ex01 Guy 301582359 Tamir 300514049\bin\Debug\FbGraphApiWrapper.dll

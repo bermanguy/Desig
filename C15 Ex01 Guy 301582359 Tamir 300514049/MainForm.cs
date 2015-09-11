@@ -49,7 +49,7 @@ namespace C15_Ex01_Guy_301582359_Tamir_300514049
 
         private void onLoginSuccess(string i_LoginErrorMessage)
         {
-            tabsController.Invoke(new Action( () => tabsController.Enabled = true));
+            tabsController.Invoke(new Action(() => tabsController.Enabled = true));
             //tabsController.Enabled = true;
             sr_StartAfterLoginProcessThread.Start();
         }
@@ -106,16 +106,18 @@ namespace C15_Ex01_Guy_301582359_Tamir_300514049
         private void locationSearchButton_Click(object sender, EventArgs e)
         {
             string[] locationInput = userLocationTextBox.Text.ToUpper().Split();
-            List<LocationItemInfo> locationsList = searchByDateCheckBox.Checked ? m_LogicManager.FetchLocationsByDate(locationInput, dateTimePickerFrom, dateTimePickerTo) :
+            List<ItemInfo> locationsList = searchByDateCheckBox.Checked ? m_LogicManager.FetchLocationsByDate(locationInput, dateTimePickerFrom, dateTimePickerTo) :
                 m_LogicManager.FetchLocations(locationInput);
 
             locationTable.Rows.Clear();
 
-            foreach (LocationItemInfo location in locationsList)
-            {
-                this.locationTable.Rows.Add(location.GetItemName(), location.GetOwnerName(), location.GetCreatedDate(), location.GetItemImageUrl().StringExistance());
-                locationTable.ClearSelection();
-            }
+            m_LogicManager.FetchInfo(locationTable.Rows.Add, locationsList);
+
+            //foreach (LocationItemInfo location in locationsList)
+            //{
+            //    this.locationTable.Rows.Add(location.GetItemName(), location.GetOwnerName(), location.GetCreatedDate(), location.GetItemImageUrl().StringExistance());
+            //    locationTable.ClearSelection();
+            //}
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -191,7 +193,7 @@ namespace C15_Ex01_Guy_301582359_Tamir_300514049
             if (i_ItemImageUrl != null)
             {
                 itemImagePictureBox.LoadAsync(i_ItemImageUrl);
-                itemImagePictureBox.Image = 
+                //itemImagePictureBox.Image = 
             }
             else
             {

@@ -30,12 +30,12 @@ namespace C15_Ex01_Guy_301582359_Tamir_300514049.Logic
             return userImageUrl;
         }
 
-        public object[] GetValues()
+        public virtual object[] GetValues()
         {
             //List<object> values = new List<object>();
             //object[] objects = values.Cast<object>().ToArray();
             //mylist.Cast<object>().ToArray()
-            return new object[] { 1, 2, 3 };
+            return new object[] { User.Name };
         }
     }
 }

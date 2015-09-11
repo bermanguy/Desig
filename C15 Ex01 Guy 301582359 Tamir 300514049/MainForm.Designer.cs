@@ -29,6 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -50,6 +51,7 @@
             this.friendColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.itemImagePictureBox = new System.Windows.Forms.PictureBox();
             this.resetButton = new System.Windows.Forms.Button();
             this.searchButton = new System.Windows.Forms.Button();
@@ -81,7 +83,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.friendsListBox = new System.Windows.Forms.ListBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.profilePic_PictureBox)).BeginInit();
@@ -89,6 +91,7 @@
             this.groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.locationTable)).BeginInit();
             this.groupBox7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemImagePictureBox)).BeginInit();
             this.filterGroupBox.SuspendLayout();
             this.dateSearchPanel.SuspendLayout();
@@ -102,7 +105,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.educationTable)).BeginInit();
             this.groupBox6.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -255,8 +258,6 @@
             // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.pictureBox2);
-            this.groupBox7.Controls.Add(this.itemImagePictureBox);
             this.groupBox7.Controls.Add(this.resetButton);
             this.groupBox7.Controls.Add(this.searchButton);
             this.groupBox7.Controls.Add(this.userLocationTextBox);
@@ -270,9 +271,19 @@
             this.groupBox7.TabIndex = 13;
             this.groupBox7.TabStop = false;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(700, 605);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(129, 104);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 33;
+            this.pictureBox2.TabStop = false;
+            // 
             // itemImagePictureBox
             // 
-            this.itemImagePictureBox.Location = new System.Drawing.Point(327, 34);
+            this.itemImagePictureBox.Location = new System.Drawing.Point(700, 485);
             this.itemImagePictureBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.itemImagePictureBox.Name = "itemImagePictureBox";
             this.itemImagePictureBox.Size = new System.Drawing.Size(129, 112);
@@ -493,11 +504,11 @@
             // 
             this.tabPage1.Controls.Add(this.educationGroupBox);
             this.tabPage1.Controls.Add(this.groupBox6);
-            this.tabPage1.Location = new System.Drawing.Point(4, 28);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
-            this.tabPage1.Size = new System.Drawing.Size(498, 649);
+            this.tabPage1.Size = new System.Drawing.Size(498, 652);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Mutual Academic Friends";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -642,23 +653,15 @@
             this.friendsListBox.Size = new System.Drawing.Size(172, 420);
             this.friendsListBox.TabIndex = 0;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(327, 165);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(129, 104);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 33;
-            this.pictureBox2.TabStop = false;
-            // 
             // FormFacebook
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(867, 746);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.itemImagePictureBox);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tabsController);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -674,6 +677,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.locationTable)).EndInit();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemImagePictureBox)).EndInit();
             this.filterGroupBox.ResumeLayout(false);
             this.filterGroupBox.PerformLayout();
@@ -691,7 +695,7 @@
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -742,5 +746,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn friendColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn placeColumn;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.BindingSource bindingSource1;
     }
 }
