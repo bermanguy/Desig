@@ -121,9 +121,18 @@ namespace C15_Ex01_Guy_301582359_Tamir_300514049.Logic
 
         private bool checkIfCheckinRelevant(string[] i_Location, Checkin i_Checkin)
         {
-            string[] inputCheckinString = i_Checkin.Place.Name.ToUpper().Split();
+            bool isRelevantCheckin = false;
 
-            return isRelevant(i_Location, inputCheckinString);
+            if (i_Checkin.Place == null || i_Checkin.Place.Name == null)
+            {
+                isRelevantCheckin = false;
+            }
+            else
+            {
+                string[] inputCheckinString = i_Checkin.Place.Name.ToUpper().Split();
+                isRelevantCheckin = isRelevant(i_Location, inputCheckinString);
+            }
+            return isRelevantCheckin;
         }
 
         private bool isRelevantEducation(string[] i_SplittesWords, string educationName)

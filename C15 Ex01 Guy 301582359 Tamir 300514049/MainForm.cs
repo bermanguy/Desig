@@ -186,9 +186,12 @@ namespace C15_Ex01_Guy_301582359_Tamir_300514049
 
         private void displayItemPictures(string i_ItemImageUrl)
         {
+            // here proxy
+            // cre
             if (i_ItemImageUrl != null)
             {
                 itemImagePictureBox.LoadAsync(i_ItemImageUrl);
+                itemImagePictureBox.Image = 
             }
             else
             {
