@@ -14,9 +14,14 @@ namespace C15_Ex01_Guy_301582359_Tamir_300514049.Logic
         {
             int result;
 
-            result = ListBoxOriginal.Items.Add(values);
+            result = ListBoxOriginal.Items.Add(values[0]);
 
             return result;
+        }
+
+        public void Clear()
+        {
+            ListBoxOriginal.Items.Clear();
         }
     }
 }

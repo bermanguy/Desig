@@ -52,13 +52,15 @@ namespace C15_Ex01_Guy_301582359_Tamir_300514049.Logic
             List<object> values = new List<object>();
 
             values.Add(GetItemName());
-            values.Add(GetCreatedDate());
-            values.Add(GetItemImageUrl());
-
+            
             foreach (object obj in baseValues)
             {
                 values.Add(obj);
             }
+            values.Add(GetCreatedDate());
+            values.Add(GetItemImageUrl().StringExistance());
+
+            
             //object[] objects = values.Cast<object>().ToArray();
             //mylist.Cast<object>().ToArray()
             return values.ToArray();

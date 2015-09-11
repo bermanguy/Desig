@@ -18,6 +18,11 @@ namespace C15_Ex01_Guy_301582359_Tamir_300514049
         private static readonly DateTime sr_MinDateSearch = new DateTime(1950, 1, 1);
         private LogicManager m_LogicManager;
         private readonly Thread sr_StartAfterLoginProcessThread;
+        private readonly IUIGroupComponent r_LocationsTable;
+        private readonly IUIGroupComponent r_EducationTable;
+        private readonly IUIGroupComponent r_FriendsListBox;
+        private readonly IUIGroupComponent r_EventsListBox;
+        private IAsyncPictureBoxLoader m_AsyncPictureBoxLoader;
 
         public FormFacebook()
         {
@@ -29,7 +34,11 @@ namespace C15_Ex01_Guy_301582359_Tamir_300514049
             dateTimePickerFrom.MinDate = sr_MinDateSearch;
             sr_StartAfterLoginProcessThread = new Thread(startAfterLoginProcess);
             m_LogicManager.m_onLoginSuccess += onLoginSuccess;
-            //tabsController.Enabled = true;
+            r_LocationsTable = new DataGridViewApp { DataGridViewOriginal = locationTable };
+            r_EducationTable = new DataGridViewApp { DataGridViewOriginal = educationTable };
+            r_FriendsListBox = new ListBoxApp { ListBoxOriginal = friendsListBox };
+            r_EventsListBox = new ListBoxApp { ListBoxOriginal = EventsListBox };
+            m_AsyncPictureBoxLoader = new ItemImagePictureBoxProxy(itemImagePictureBox);
         }
 
         private void loginButton_Click(object sender, EventArgs e)
@@ -85,7 +94,7 @@ namespace C15_Ex01_Guy_301582359_Tamir_300514049
         {
             friendsListBox.Items.Clear();
             friendsListBox.DisplayMember = k_DisplayMembersName;
-            m_LogicManager.FetchInfo(friendsListBox.Items.Add, m_LogicManager.LoggedUser.Friends);
+            m_LogicManager.FetchInfo(r_FriendsListBox.Add, m_LogicManager.LoggedUser.Friends);
         }
 
         private void fetchEvents()
@@ -100,7 +109,7 @@ namespace C15_Ex01_Guy_301582359_Tamir_300514049
             //    EventsListBox.Items.Add(item.Name);
             //}
             //FacebookWrapper.ObjectModel.FacebookObjectCollection<FacebookWrapper.ObjectModel.Event> events = m_LogicManager.LoggedUser.GetUpcomingEvents();
-            m_LogicManager.FetchInfo(EventsListBox.Items.Add, m_LogicManager.LoggedUser.UpcomingEvents);
+            m_LogicManager.FetchInfo(r_EventsListBox.Add, m_LogicManager.LoggedUser.UpcomingEvents);
         }
 
         private void locationSearchButton_Click(object sender, EventArgs e)
@@ -111,11 +120,11 @@ namespace C15_Ex01_Guy_301582359_Tamir_300514049
 
             locationTable.Rows.Clear();
 
-            m_LogicManager.FetchInfo(locationTable.Rows.Add, locationsList);
+            m_LogicManager.FetchInfo(r_LocationsTable.Add, locationsList);
 
             //foreach (LocationItemInfo location in locationsList)
             //{
-            //    this.locationTable.Rows.Add(location.GetItemName(), location.GetOwnerName(), location.GetCreatedDate(), location.GetItemImageUrl().StringExistance());
+            //this.locationTable.Rows.Add(location.GetItemName(), location.GetOwnerName(), location.GetCreatedDate(), location.GetItemImageUrl().StringExistance());
             //    locationTable.ClearSelection();
             //}
         }
@@ -127,14 +136,16 @@ namespace C15_Ex01_Guy_301582359_Tamir_300514049
         private void educationSearchButton_Click(object sender, EventArgs e)
         {
             string[] educationInput = academicTextBox.Text.ToUpper().Split();
-            List<EducationItemInfo> educationList = m_LogicManager.FetchEducation(educationInput);
+            List<ItemInfo> educationList = m_LogicManager.FetchEducation(educationInput);
 
             educationTable.Rows.Clear();
 
-            foreach (EducationItemInfo item in educationList)
-            {
-                this.educationTable.Rows.Add(item.GetOwnerName(), item.GetSchoolName());
-            }
+            m_LogicManager.FetchInfo(r_EducationTable.Add, educationList);
+
+            //foreach (EducationItemInfo item in educationList)
+            //{
+            //    this.educationTable.Rows.Add(item.GetOwnerName(), item.GetSchoolName());
+            //}
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -188,16 +199,16 @@ namespace C15_Ex01_Guy_301582359_Tamir_300514049
 
         private void displayItemPictures(string i_ItemImageUrl)
         {
-            // here proxy
-            // cre
             if (i_ItemImageUrl != null)
             {
-                itemImagePictureBox.LoadAsync(i_ItemImageUrl);
-                //itemImagePictureBox.Image = 
+                //itemImagePictureBoxProxy.LoadAsync(i_ItemImageUrl);
+                //itemImagePictureBox.LoadAsync(i_ItemImageUrl);
+                m_AsyncPictureBoxLoader.LoadAsync(i_ItemImageUrl);
+
             }
             else
             {
-                itemImagePictureBox.Image = null;
+                itemImagePictureBox.LoadAsync("http://www.yeldimdim.co.il/pic/kofffhamodd.jpg");
             }
         }
     }

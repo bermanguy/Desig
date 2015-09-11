@@ -51,7 +51,6 @@
             this.friendColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.placeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.itemImagePictureBox = new System.Windows.Forms.PictureBox();
             this.resetButton = new System.Windows.Forms.Button();
             this.searchButton = new System.Windows.Forms.Button();
@@ -91,7 +90,6 @@
             this.groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.locationTable)).BeginInit();
             this.groupBox7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemImagePictureBox)).BeginInit();
             this.filterGroupBox.SuspendLayout();
             this.dateSearchPanel.SuspendLayout();
@@ -260,6 +258,7 @@
             // 
             this.groupBox7.Controls.Add(this.resetButton);
             this.groupBox7.Controls.Add(this.searchButton);
+            this.groupBox7.Controls.Add(this.itemImagePictureBox);
             this.groupBox7.Controls.Add(this.userLocationTextBox);
             this.groupBox7.Controls.Add(this.label1);
             this.groupBox7.Controls.Add(this.filterGroupBox);
@@ -271,22 +270,12 @@
             this.groupBox7.TabIndex = 13;
             this.groupBox7.TabStop = false;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(700, 605);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(129, 104);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 33;
-            this.pictureBox2.TabStop = false;
-            // 
             // itemImagePictureBox
             // 
-            this.itemImagePictureBox.Location = new System.Drawing.Point(700, 485);
+            this.itemImagePictureBox.Location = new System.Drawing.Point(297, 63);
             this.itemImagePictureBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.itemImagePictureBox.Name = "itemImagePictureBox";
-            this.itemImagePictureBox.Size = new System.Drawing.Size(129, 112);
+            this.itemImagePictureBox.Size = new System.Drawing.Size(180, 155);
             this.itemImagePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.itemImagePictureBox.TabIndex = 32;
             this.itemImagePictureBox.TabStop = false;
@@ -659,9 +648,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(867, 746);
-            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.itemImagePictureBox);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tabsController);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -677,7 +664,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.locationTable)).EndInit();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemImagePictureBox)).EndInit();
             this.filterGroupBox.ResumeLayout(false);
             this.filterGroupBox.PerformLayout();
@@ -745,7 +731,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dateColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn friendColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn placeColumn;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.BindingSource bindingSource1;
     }
 }

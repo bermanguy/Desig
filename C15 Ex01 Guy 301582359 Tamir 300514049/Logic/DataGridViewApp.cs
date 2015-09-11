@@ -12,7 +12,16 @@ namespace C15_Ex01_Guy_301582359_Tamir_300514049.Logic
 
         public int Add(params object[] values)
         {
-            return 0;
+            int result;
+            
+            result = DataGridViewOriginal.Rows.Add(values);
+
+            return result;
+        }
+
+        public void Clear()
+        {
+            DataGridViewOriginal.Rows.Clear();
         }
     }
 }

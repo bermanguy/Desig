@@ -8,5 +8,7 @@ namespace C15_Ex01_Guy_301582359_Tamir_300514049.Logic
     public interface IUIGroupComponent
     {
         int Add(params object[] values);
+
+        void Clear();
     }
 }

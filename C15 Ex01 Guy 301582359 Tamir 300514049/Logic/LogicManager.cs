@@ -58,7 +58,7 @@ namespace C15_Ex01_Guy_301582359_Tamir_300514049.Logic
             //return loginSuccess;
         }
 
-        public void FetchInfo<T>(AddItemAction<object> i_AddItem, ICollection<T> i_Collection)
+        public void FetchInfo<T>(AddItemAction i_AddItem, ICollection<T> i_Collection)
         {
             if (m_LoggedInUser != null)
             {
@@ -121,9 +121,18 @@ namespace C15_Ex01_Guy_301582359_Tamir_300514049.Logic
 
         private bool checkIfCheckinRelevant(string[] i_Location, Checkin i_Checkin)
         {
-            string[] inputCheckinString = i_Checkin.Place.Name.ToUpper().Split();
+            bool isRelevantCheckin = false;
 
-            return isRelevant(i_Location, inputCheckinString);
+            if (i_Checkin.Place == null || i_Checkin.Place.Name == null)
+            {
+                isRelevantCheckin = false;
+            }
+            else
+            {
+                string[] inputCheckinString = i_Checkin.Place.Name.ToUpper().Split();
+                isRelevantCheckin = isRelevant(i_Location, inputCheckinString);
+            }
+            return isRelevantCheckin;
         }
 
         private bool isRelevantEducation(string[] i_SplittesWords, string educationName)
@@ -188,9 +197,9 @@ namespace C15_Ex01_Guy_301582359_Tamir_300514049.Logic
             return isDateInRange;
         }
 
-        public List<EducationItemInfo> FetchEducation(string[] i_EducationInput)
+        public List<ItemInfo> FetchEducation(string[] i_EducationInput)
         {
-            List<EducationItemInfo> educationList = new List<EducationItemInfo>();
+            List<ItemInfo> educationList = new List<ItemInfo>();
 
             foreach (User user in m_LoggedInUser.Friends)
             {

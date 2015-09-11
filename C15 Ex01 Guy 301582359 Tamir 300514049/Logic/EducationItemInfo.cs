@@ -17,5 +17,22 @@ namespace C15_Ex01_Guy_301582359_Tamir_300514049.Logic
 
             return schoolName;
         }
+
+        public override object[] GetValues()
+        {
+            object[] baseValues = base.GetValues();
+            List<object> values = new List<object>();
+
+            foreach (object obj in baseValues)
+            {
+                values.Add(obj);
+            }
+
+            values.Add(GetSchoolName());
+
+            //object[] objects = values.Cast<object>().ToArray();
+            //mylist.Cast<object>().ToArray()
+            return values.ToArray();
+        }
     }
 }
